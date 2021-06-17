@@ -1,12 +1,9 @@
 export default {
-  repository: 'https://github.com/shuding/nextra',
-  titleSuffix: ' – Nextra',
+  repository: 'https://github.com/mwinel/pumpkin',
+  titleSuffix: ' – Pumpkin',
   logo: (
     <>
-      <span className="mr-2 font-extrabold hidden md:inline">Nextra</span>
-      <span className="text-gray-600 font-normal hidden md:inline">
-        The Next.js Site Builder
-      </span>
+      <span className="mr-2 font-extrabold hidden md:inline">Pumpkin CN</span>
     </>
   ),
   head: (
@@ -15,15 +12,15 @@ export default {
       <meta name="theme-color" content="#ffffff" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Language" content="en" />
-      <meta name="description" content="Nextra: the Next.js site builder" />
-      <meta name="og:description" content="Nextra: the Next.js site builder" />
+      <meta name="description" content="Pumpkin: A practical guide to Cloud Native." />
+      <meta name="og:description" content="Pumpkin: A practical guide to Cloud Native." />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="https://nextra.vercel.app/og.png" />
-      <meta name="twitter:site:domain" content="nextra.vercel.app" />
-      <meta name="twitter:url" content="https://nextra.vercel.app" />
-      <meta name="og:title" content="Nextra: Next.js static site generator" />
-      <meta name="og:image" content="https://nextra.vercel.app/og.png" />
-      <meta name="apple-mobile-web-app-title" content="Nextra" />
+      <meta name="twitter:image" content="https://pumpkin.vercel.app/og.png" />
+      <meta name="twitter:site:domain" content="pumpkin.vercel.app" />
+      <meta name="twitter:url" content="https://pumpkin.vercel.app" />
+      <meta name="og:title" content="Pumpkin: A practical guide to Cloud Native." />
+      <meta name="og:image" content="https://pumpkin.vercel.app/og.png" />
+      <meta name="apple-mobile-web-app-title" content="Pumpkin" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -61,5 +58,5 @@ export default {
   nextLinks: true,
   footer: true,
   footerEditOnGitHubLink: true,
-  footerText: <>MIT {new Date().getFullYear()} © Nextra.</>,
+  footerText: <>MIT {new Date().getFullYear()} © Pumpkin.</>,
 }
