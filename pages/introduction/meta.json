@@ -1,5 +1,6 @@
 {
   "get-started": "Get Started",
   "prerequisites": "Prerequisites",
-  "cloud-native": "Cloud Native"
+  "cloud-native": "Cloud Native",
+  "cloud-native-tooling": "Cloud Native Tooling"
 }

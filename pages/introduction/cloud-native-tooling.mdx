@@ -1,0 +1,28 @@
+# Cloud Native Tooling
+
+With the usage of multiple containers it was imperative to introduce a tool that would help manage containers at scale. 
+With time a number of tools have been developed, such as;
+
+- [Docker Swarm](https://docs.docker.com/engine/swarm/)
+- [Apache Mesos](https://mesos.apache.org/)
+- [Kubernetes](https://kubernetes.io/)
+
+However in this guide we shall be working with Kubernetes. 
+Kubernetes had its first initial release in 2014 and it derives from Borg, a Google open-source container orchestrator. 
+Currently, Kubernetes is part of ***[Cloud Native Computing Foundation](), (CNCF)***. 
+CNCF was founded in 2015, and it provides a vendor-neutral home to open-source projects such as;
+
+- Kubernetes
+- Prometheus
+- ETCD
+- Envoy and many more.
+
+Kubernetes is a container orchestrator that ***automates*** the configuration, management, and scalability of an application.
+Overtime Kubernetes capabilities were further extended to integrate with tools that provide functionality such as;
+
+- **Runtime** for application execution requirement
+- **Network** for application connectivity
+- **Storage** for application resources
+- **Service Mesh** for the granular control of traffic within a cluster
+- **Logs and Metrics** for increased visibility within an application
+- and **Tracing** for building the full request journey.
