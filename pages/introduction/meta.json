@@ -2,5 +2,6 @@
   "get-started": "Get Started",
   "prerequisites": "Prerequisites",
   "cloud-native": "Cloud Native",
-  "cloud-native-tooling": "Cloud Native Tooling"
+  "cloud-native-tooling": "Cloud Native Tooling",
+  "why-cloud-native-tooling": "Why Cloud Native Tooling?"
 }
