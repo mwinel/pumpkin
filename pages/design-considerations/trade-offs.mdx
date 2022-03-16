@@ -1,0 +1,72 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Trade-Offs for Monoliths and Microservices
+
+Applications can be designed using both, monolithic or microservice-based architectures.
+So far, we have looked at how the structure of an application is contoured by functional requirements and available resources.
+However, each architecture has a set of trade-offs, and these need to be thoroughly examined before deciding on the final structure of the application.
+
+These trade-offs cover;
+
+- development complexity
+- scalability
+- time to deploy
+- flexibility
+- reliability, and
+- operational cost
+
+Let's examine each trade-off in more detail!
+
+### Development Complexity
+
+Development complexity entails the efforts required to deploy and manage your application.
+
+- _Monoliths require one programming language; one repository; and this enables sequential development._
+- _Microservices on the other hand require multiple programming languages; multiple repositories; and this calls for enables concurrent development._
+
+### Scalability
+
+Scalability deals with how your application scales up and down, based on the incoming traffic. The capacity for your application to handle incoming traffic has to grow as your traffic grows.
+
+- _Monoliths require replication of the entire stack; hence it's heavy on resource consumption._
+- _Microservices on the other hand require replication of a single unit, providing on-demand consumption of resources._
+
+### Time to deploy
+
+Time to deploy encapsulates the build of a delivery pipeline that is used to ship different features of your application.
+
+- _Monoliths require one delivery pipeline that deploys the entire stack; more risk with each deployment leading to a lower velocity rate._
+- _Microservices require multiple delivery pipelines that deploy separate units; less risk with each deployment leading to a higher feature development rate._
+
+### Flexibility
+
+Flexibility implies the ability to adapt to new technologies and introduce new functionalities to your application.
+
+- _Monoliths give you **low rates of flexibility**, since the entire application stack might need restructuring to incorporate new functionalities._
+- _Microservice give you **higher rates of flexibility**, since changing an independent unit is straightforward._
+
+### Reliability
+
+Reliability captures practices for your application to recover from failure and tools to monitor your application.
+
+- _When monoliths are in a **failure scenario**, the entire stack needs to be recovered. Also, the visibility into each functionality is low, since all the logs and metrics are aggregated together._
+- _On the other hand, when microservices are in a **failure scenario**, only the failed unit needs to be recovered. Also, there is high visibility into the logs and metrics for each unit._
+
+### Operational cost
+
+With the above factors in consideration, operational cost captures the cost of necessary resources to release a product.
+
+- _Monoliths tend to have a low initial cost, since one code base and one pipeline is managed. However, the cost increases exponentially when the application needs to operate at scale and needs to be reliable._
+- _On the other hand microservices tend to have a high initial cost, since multiple repositories and pipelines require management. However, at scale, the cost remains proportional to the consumed resources then._
+
+Each application architecture has a set of trade-offs that need to be considered at the genesis of a project. But more importantly, it is paramount to understand how the application will be maintained in the future e.g. at scale, under load, supporting multiple releases a day, etc.
+
+<br />
+
+<Callout type="warning" emoji="⚠️">
+  _There is no "golden path" to design a product, but a good understanding of the
+  trade-offs will provide a clear project roadmap. Regardless of a monolith or
+  microservice architecture is chosen, as long as the project is coupled with an
+  efficient delivery pipeline, the ability to adopt new technologies, and easily
+  add features, the path to could-native deployment is certain._
+</Callout>

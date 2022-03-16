@@ -1,0 +1,71 @@
+import Callout from 'nextra-theme-docs/callout'
+import Image from 'next/image'
+
+# Solution: Exercise 1
+
+It is very important to choose an architecture that would be replicable, flexible and scalable.
+For example, if thousands of customers access the payment service in the same timeframe, then this particular service should be scaled up.
+In a monolith architecture, scaling up creates a replica of everything, including front-end and customer services, in addition to the payment service and you have low rates of flxibility since since the entire application stack might need restructuring to incorporate new functionalities.
+This will also consume more resources on the platform, such as CPU and memory, and takes longer to spin up.
+
+On the other side, a microservice is a lightweight component that requires fewer resources (CPU and memory), less time for provisioning and has higher rates of flexbility if at one point in time we needed to add new functionalities to our application e.g; if we wanted to add a new payment method.
+
+A microservice-based architecture would therefore be chosen, based on considerations that the application is a central booking system for multiple hotels, that implies a high load. The main components are:
+
+- Front-end which is the entry-point for the user, where they will choose their hotel or choice.
+- Authentication service which will facilitate RBAC (role based access control) to the application.
+- Customer service which requires a database (MySQL or Mongo) to store the customer details.
+- Payments service to implement PayPal, Debit and Bitcoin based operations
+
+<br />
+
+<Callout type="warning" emoji="⚠️">
+  _These can be broken further to smaller units depending on your needs._
+</Callout>
+
+<br />
+
+<div className="p-4 border border-gray-200 dark:border-gray-900 rounded mt-6 flex flex-col items-center justify-center">
+  <br />
+  <Image
+    alt={`soution 1 architecture image 1`}
+    src={`/images/microservices-solution-image-1.drawio.svg`}
+    width={1400 / 2}
+    height={700 / 2}
+    priority
+  />
+  <br />
+  <small className="italic">
+    Hotel booking application using the Microservices architecture.
+  </small>
+</div>
+
+<br />
+
+Additionally, the "payments" microservice is capable of handling multiple payment systems and can easily be extended to adopt new payment methods.
+Interaction with the PayPal interface, management of debit card APIs and Bitcoin processes are fundamentally different.
+The "payments" component is a monolith that can be divided into multiple parts.
+
+- PayPal - handling PayPal payments
+- Debit Cards - handling debit card payments
+- Bitcoin - handling bitcoin payments
+- Mobile Money - a new scenario to handle Mobile money payments for customers in Africa where mobile money very popular
+
+<br />
+
+<div className="p-4 border border-gray-200 dark:border-gray-900 rounded mt-6 flex flex-col items-center justify-center">
+  <br />
+  <Image
+    alt={`soution 1 architecture image 2`}
+    src={`/images/microservices-solution-image-2.drawio.svg`}
+    width={1400 / 2}
+    height={700 / 2}
+    priority
+  />
+  <br />
+  <small className="italic">
+    Payment service split into different microservices.
+  </small>
+</div>
+
+<br />

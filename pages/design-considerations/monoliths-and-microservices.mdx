@@ -1,0 +1,88 @@
+import Image from 'next/image'
+
+# Monoliths and Microservices
+
+Before an organization delivers a product, the engineering team needs to decide on the most suitable application architecture.
+In most cases two distinct models are referenced: **monoliths** and **microservices**.
+
+Regardless of the adopted structure, the main goal is to design an application that delivers **_value to customers_** and can be **_easily adjusted_** to accommodate new functionalities.
+
+Each architecture encapsulates the **three main tires** of an application:
+
+1. **UI (User Interface)** or some times referred to as the client which handles HTTP requests from the users and returns a response
+2. **Business logic** - which contains the code that provides a service to the users
+3. **Data layer** - which implements access and storage of data objects
+
+### Monoliths
+
+In a monolithic architecture, application tiers can be described as:
+
+- part of the same unit
+- developed in one programming language
+- managed in a single repository
+- sharing existing resources (e.g. CPU and memory)
+- released using a single binary
+
+<br />
+
+<div className="p-4 border border-gray-200 dark:border-gray-900 rounded mt-6 flex flex-col items-center justify-center">
+<br />
+<Image
+  alt={`monolith architecture`}
+  src={`/images/monolith.drawio.svg`}
+  width={1400 / 2}
+  height={700 / 2}
+  priority
+/>
+<br />
+<small className='italic'>A diagram refrencing the three tires using the Monoliths architecture.</small>
+</div>
+
+<br />
+
+Imagine a team developing a flight booking application using a monolithic approach.
+In this case, the UI is the website that the user interacts with.
+The business logic contains the code that provides the booking functionalities, such as search, booking, payment, and so on.
+These are written using one programming language (e.g. JavaScript) and stored in a single repository.
+The data layer contains functions that store and retrieve customer data.
+All of these components are managed as **_a unit_**, and the release is done using **_a single binary_**.
+
+### Microservices
+
+In a microservice architecture, application tiers are managed independently, as different units. 
+Each unit has the following characteristics:
+
+- managed in a separate repository
+- own independently allocated resources (e.g. CPU and memory)
+- well-defined API (Application Programming Interface) for connection to other units
+- implemented using the programming language of choice for example in our example above the search could be implemented in javascript and the payments service is implemented using python
+- released using its binary
+
+<br />
+
+<div className="p-4 border border-gray-200 dark:border-gray-900 rounded mt-6 flex flex-col items-center justify-center">
+<br />
+<Image
+  alt={`microservices architecture`}
+  src={`/images/microservices.drawio.svg`}
+  width={1400 / 2}
+  height={700 / 2}
+  priority
+/>
+<br />
+<small className='italic'>A diagram refrencing the three tires using the Microservices architecture.</small>
+</div>
+
+<br />
+
+Now, let's refer back to a team developing a flight booking application but using a microservice approach this time round.
+
+In this case, the UI remains the website that the user interacts with. 
+However, the business logic is split into **smaller**, **independent** units, such as authentication, flight search, payments, confirmation, and many more. 
+These units are stored in separate repositories and are written using the programming language of choice (e.g. JavaScript for the payment service and Python for the authentication service). 
+To interact with other services, each unit exposes an API. And lastly, the data layer contains functions that store and retrieve customer and order data. 
+As expected, each unit is released using its own binary.
+
+
+
+

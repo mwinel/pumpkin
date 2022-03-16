@@ -1,0 +1,105 @@
+# Best practices for Application Deployment
+
+Regardless of the chosen architecture, a set of good development practices can be applied to improve the application lifecycle throughout the release and maintenance phases.
+Adopting these practices increases resiliency, lowers the time to recovery, and provides transparency of how a service handles incoming requests.
+
+In this section we look at some of the best practices that should be applied when developing an application that aims to be containerized.
+These practices are focused on **health checks**, **metrics**, **logs**, **tracing**, and **resource consumption**.
+
+### Health Checks
+
+Health checks are implemented to showcase the **status** of an application.
+These checks report if an application is running and meets the expected behavior to serve incoming traffic.
+
+Usually, health checks are represented by an **_HTTP endpoint_** such as `/healthz` or `/status`.
+These endpoints return an HTTP response showcasing if the application is healthy or in an error state.
+
+Sample response object;
+
+```
+{
+    result: "health"
+}
+```
+
+or
+
+```
+{
+    result: "error"
+}
+```
+
+### Metrics
+
+Metrics are necessary to understand the behavior and performance of an application.
+To fully understand how a service handles requests, it is mandatory to collect statistics on how the service operates.
+For example, the number of active users, handled requests, or the number of logins.
+Additionally, it is important to gather statistics on resources that the application requires to be fully operational.
+For example, the amount of CPU, memory, and network throughput.
+
+Usually, the collection of metrics are returned via an **_HTTP endpoint_** such as `/metrics`, which contains the internal metrics such as the number of active users, consumed CPU, network throughput, etc.
+
+Sample response object;
+
+```
+{
+    result: {
+        userCount: 400,
+        activeUsers: 386,
+        inActiveUsers: 2,
+        successfulLoginsCount: 235,
+        failedLoginsCount: 40,
+    }
+}
+```
+
+### Logs
+
+Log aggregation provides valuable insights into what operations a service is performing at a point in time.
+It is the nucleus of any troubleshooting and debugging process.
+For example, it is essential to record if a user logged in successfully into a service, or encountered an error while performing a payment.
+
+Usually, the logs are collected from **STDOUT (standard out)** and **STDERR (standard error)** through a passive logging mechanism.
+This means that any output or errors from the application are sent to the shell.
+Subsequently, these are collected by a logging tool, such as [Splunk](https://www.splunk.com/) or [Fluentd](https://www.fluentd.org/), and stored in backend storage.
+
+However, your application can also send the logs directly to the backend storage.
+In this case, an active logging technique is used, as the log transmission is handled directly by the application, without a logging tool required.
+
+There are multiple logging levels that can be attributed to an operation. Some of the most widely used are:
+
+- **DEBUG** which records fine-grained events of application processes.
+- **INFO** which provides coarse-grained information about a given operation such as a user trying to login.
+- **WARN** which records a potential issue with the service such as user multiple logins from different devices.
+- **ERROR** which notifies an error has been encountered, however, the application is still running.
+- **FATAL** which represents a critical situation, when the application is not operational.
+
+It is also a best practice to associate each log line with a timestamp, that will exactly record when an operation was invoked.
+
+Sample response object;
+
+```
+{
+    result: {
+        date: "2022-03-15 03:15:23",
+        severity: "ERROR",
+        msg: "Login failed for user BOB"
+    }
+}
+```
+
+### Tracing
+
+Tracing is capable of creating a full picture of how different services are invoked to fulfill a single request.
+Usually, tracing is integrated through a library at the application layer, where the developer can record when a particular service is invoked.
+
+These records for individual services are defined as **spans**.
+_A collection of spans define a trace that recreates the entire lifecycle of a request._
+
+### Resource Consumption
+
+Resource consumption entails the resources an application requires to be fully operational.
+This usually refers to the amount of CPU and memory that is consumed by an application during its execution.
+Additionally, it is beneficial to benchmark the network throughput, or how many requests can an application handle concurrently.
+Having awareness of resource boundaries is essential to ensure that the application is up and running 24/7.

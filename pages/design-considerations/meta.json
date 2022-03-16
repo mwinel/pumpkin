@@ -1,0 +1,11 @@
+{
+  "design-considerations": "Architecture Design Considerations for Cloud-Native Applications",
+  "monoliths-and-microservices": "Monoliths and Microservices",
+  "trade-offs": "Trade-Offs for Monoliths and Microservices",
+  "exercise-1": "Exercise 1",
+  "solution-1": "Solution: Exercise 1",
+  "best-practices": "Best practices for Application Deployment",
+  "exercise-2": "Exercise 2: Health and metrics endpoints",
+  "exercise-3": "Exercise 3: Logging",
+  "application-maintenance-operations": "Application maintenance operations"
+}

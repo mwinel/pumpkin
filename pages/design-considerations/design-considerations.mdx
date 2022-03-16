@@ -1,0 +1,24 @@
+# Architecture Design Considerations for Cloud-Native Applications
+
+When building an application it is important to allocate time for context discovery.
+This includes listing all necessary functionalities of the application and enumerating any resources that can enable its buildout.
+
+This phase sets the fundamentals of the project. If properly implemented, it can enable the creation of services that are **_scalable_**, **_resilient_**, and **_extensible_**.
+
+The first step in the context discovery process is to list the **functional requirements**, or what application capabilities should deliver to the end-users.
+For example, a good starting point is to expand on the following:
+
+- Stakeholders, such as identifying the personas that require and sponsor the application for example the operations team requiring a new internal tool to manage booking office cold rooms.
+- Functionalities, what functionalies are needed for the application to deliver value to the operations team.
+- End users, employees part of the operations team
+- Input and output process
+- Engineering teams, understanding what engineering team can build the solution.
+
+The second step is to enumerate the **available resources** that facilitate the implementation of the project. For example, a good starting point is to list available:
+
+- Engineering resources, such as the number of engineers that can work on the project.
+- Financial resources, how much can the business spend to ensure a successful release of the application.
+- Timeframes, when is the application needed and when can it be delivered.
+- Internal knowledge, are there engineers on the team with the required skills to build the application.
+
+Having a good understanding of functional requirements and available resources can lead to a simpler choice between **_monolithic_** and **_microservice-based_** architectures.

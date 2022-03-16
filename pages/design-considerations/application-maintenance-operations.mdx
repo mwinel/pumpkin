@@ -1,0 +1,17 @@
+# Application maintenance operations
+
+Applications are generally amorphous and are deemed to evolve with time.
+Both monolith and microservice-based applications transition in the maintenance phase after the production release.
+When considering adding new functionalities or incorporating new tools, it is always beneficial to focus on extensibility rather than flexibility.
+Generally speaking, it is more efficient to manage multiple services with a well-defined and simple functionality (as in the case of microservices), rather than add more abstraction layers to support new services (as we’ve seen with the monoliths).
+However, to have a well-structured maintenance phase, it is essential to understand the reasons an architecture is chosen for an application and involved trade-offs.
+
+Some of the most encountered operations in the maintenance phase are listed below:
+
+- A **split operation** which is applied if a service covers too many functionalities and it's complex to manage. Having smaller, manageable units is preferred in this context.
+- A **merge operation** which is applied if units are too granular or perform closely interlinked operations, and it provides a development advantage to merge these. For example, merging 2 separate services for log output and log format in a single service.
+- A **replace operation** which is adopted when a more efficient implementation is identified for service. For example, rewriting a Java service in JavaScript, to optimize the overall execution time.
+- A **stale operation** which is performed for services that are no longer providing any business value, and should be archived or deprecated. For example, services that were used to perform a one-off migration process.
+
+By performing any of these operations you increase the longevity and continuity of a given project.
+Overall, the end goal is to ensure the application is providing value to customers and is easy to manage by the engineering team.
